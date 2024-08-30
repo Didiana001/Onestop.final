@@ -1,89 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sign Up</title>
+    <title>Sign Up</title>
 </head>
 <body>
-    <h2>Sign Up</h2>
-    {% comment %} help me style this page  {% endcomment %}
-    <style>
-        /* Form container */
-        .form-container {
-            max-width: 400px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f4f7f6;
-            border-radius: 5px;
-            box-shadow: 0px 0px 10px 0px #000;
-        }
-
-        /* Form header */
-        .form-header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        /* Form title */
-        .form-title {
-            margin: 0;
-            color: #004d00;
-        }
-
-        /* Form group */
-        .form-group {
-            margin-bottom: 10px;
-        }
-
-        /* Form label */
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        /* Form input */
-        .form-group input {
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-
-        /* Button styling */
-        .btn {
-            background-color: #004d00; /* Custom green background */
-            color: #ffffff; /* White text */
-            border: none;
-            border-radius: 5px;
-            padding: 10px;
-            width: 100%;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .btn:hover {
-            background-color: #003300; /* Darker green for hover */
-        }
-
-        /* Signup link styling */
-        .signup-link {
-            text-align: center;
-            margin-top: 15px;
-        }
-
-        .signup-link a {
-            color: #004d00; /* Dark green color for links */
-            text-decoration: none;
-        }
-
-        .signup-link a:hover {
-            text-decoration: underline;
-        }
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" >Sign Up</button>
-    </form>
-    <p>Already have an account? <a href="{% url 'login' %}">Login here</a>.</p>
+    <h2>Sign Up</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" >Sign Up</button>
+    </form>
+    <p>Already have an account? <a href="{% url 'login' %}">Login here</a>.</p>
 </body>
 </html>

@@ -12,6 +12,8 @@ from django.contrib.auth.forms import AuthenticationForm
 
 
 
+
+
 # class Response(typing.TypedDict):
 #   response_item: str
 genai.configure(api_key='AIzaSyASINCqIKiWdWEcmz3_Ij-u3ELqSSnBPDQ')
@@ -20,6 +22,9 @@ model = genai.GenerativeModel('gemini-1.5-pro',
                             #   generation_config={"response_mime_type": "application/json",
                             #                      "response_schema": list[Response]}
                             )
+
+
+
 
 @csrf_exempt
 @login_required
