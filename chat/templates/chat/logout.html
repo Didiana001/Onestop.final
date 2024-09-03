@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logged Out</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        h2 {
+            margin-top: 50px;
+            color: #333;
+        }
+
+        .message {
+            margin: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #ffffff;
+            background-color: #007bff; /* Blue color for buttons */
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 10px;
+        }
+
+        .button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <h2>You have been logged out</h2>
+    <div class="message">
+        <p><a href="{% url 'login' %}" class="button">Login Again</a></p>
+        <p><a href="{% url 'signup' %}" class="button">Sign Up</a></p>
+    </div>
+</body>
+</html>
