@@ -7,10 +7,6 @@ from django.contrib.auth.decorators import login_required
 from .models import Conversation
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
-<<<<<<< HEAD
-from django.contrib.auth import logout
-=======
->>>>>>> 161bea38300eb31e8e7f71d3da745a342e30d9f2
 from django.conf import settings
 from decouple import config
 
@@ -51,30 +47,19 @@ def chat_view(request):
     conversations = Conversation.objects.filter(user=request.user).order_by('-timestamp')
     return render(request, 'chat/index.html', {'conversations': conversations})
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 161bea38300eb31e8e7f71d3da745a342e30d9f2
 def signup_view(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('login')
-<<<<<<< HEAD
         else:
             # Debugging: print form errors
             print(form.errors)
-=======
->>>>>>> 161bea38300eb31e8e7f71d3da745a342e30d9f2
     else:
         form = UserCreationForm()
     return render(request, 'chat/signup.html', {'form': form})
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 161bea38300eb31e8e7f71d3da745a342e30d9f2
 def custom_login_view(request):
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
