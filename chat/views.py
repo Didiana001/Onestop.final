@@ -110,3 +110,5 @@ def format_guide_view(request):
 # Redirect for AskOneStop button to home page
 def askonestop_view(request):
     return redirect('home')
+
+

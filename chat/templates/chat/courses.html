@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - Onestop</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white; /*
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: green; /* Green navbar */
+            position: sticky; /* Make navbar sticky */
+            top: 0; /* Stick to the top */
+            z-index: 1000; /* Ensure it stays above other content */
+        }
+
+        .navbar a {
+            color: white;
+        }
+
+        .navbar .navbar-brand {
+            font-weight: bold;
+        }
+
+        /* Section Title */
+        .section-title {
+            color: green;
+            font-size: 24px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        /* Card Styles */
+        .card {
+            border: none;
+            border-radius: 15px;
+            transition: transform 0.3s, box-shadow 0.3s; /* Match animation */
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-body {
+            background: linear-gradient(135deg, #f0e7ff, #ffe4f3); /* Match gradient */
+            border-radius: 15px;
+            color: #6a1b9a;
+        }
+
+        .card-body a {
+            color: #d500f9; /* Bright magenta link color */
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .card-body a:hover {
+            color: #4a148c; /* Dark purple on hover */
+        }
+
+        /* AskOneStop Button */
+        .askonestop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 14px;
+            background-color: green;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 10px;
+            text-decoration: none;
+        }
+
+        .askonestop:hover {
+            background-color: darkgreen;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .askonestop {
+                bottom: 15px;
+                right: 15px;
+                padding: 8px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#">Onestop</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Format Guide</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">ASKONESTOP</a>
+                </li>
+                <li class="nav-item">
+                    <form action="#" method="post" class="form-inline">
+                        <button type="submit" class="btn btn-outline-light">Logout</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Section -->
+    <div class="container mt-5">
+        <h1 class="section-title">Courses: Navigate Your Academic Journey</h1>
+        <div class="row">
+            <!-- Card 1 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Course Catalog</h5>
+                        <p class="card-text">Browse a comprehensive list of courses offered by the university.</p>
+                        <a class="btn btn-success" href="#">Explore More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Course Schedule</h5>
+                        <p class="card-text">Access your personalized course schedule with class times and locations.</p>
+                        <a class="btn btn-success" href="#">Schedule Options</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Learning Resources</h5>
+                        <p class="card-text">Find relevant course materials such as lecture notes, assignments, and readings.</p>
+                        <a class="btn btn-success" href="#">Resources</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AskOneStop Button -->
+    <a href="#" class="askonestop">AskOneStop</a>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

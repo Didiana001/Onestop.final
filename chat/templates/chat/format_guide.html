@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter Formats - Onestop</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* Custom colors matching the image */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white; /* Changed to white background */
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: green; /* Maintained the green navbar */
+            position: sticky; /* Make navbar sticky */
+            top: 0; /* Stick to the top */
+            z-index: 1000; /* Ensure it stays above other content */
+        }
+
+        .navbar a {
+            color: white;
+        }
+
+        .navbar .navbar-brand {
+            font-weight: bold;
+        }
+
+        /* Content Section */
+        .content-section {
+            padding: 50px;
+            background-color: #f4f4f4; /* Soft background color for contrast */
+        }
+
+        .content-section h1 {
+            font-size: 28px;
+            color: #6a1b9a; /* Deep purple title */
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* Card Styles */
+        .card {
+            border: none;
+            border-radius: 15px;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-body {
+            background: linear-gradient(135deg, #f0e7ff, #ffe4f3); /* Pink/purple gradient */
+            border-radius: 15px;
+            color: #6a1b9a;
+        }
+
+        .card-body a {
+            color: #d500f9; /* Bright magenta link color */
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .card-body a:hover {
+            color: #4a148c; /* Dark purple on hover */
+        }
+
+        /* Footer Styles */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #6a1b9a; /* Footer color matching title */
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* AskOneStop Button */
+        .askonestop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 14px;
+            background-color: green;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 10px;
+            text-decoration: none;
+        }
+
+        .askonestop:hover {
+            background-color: darkgreen;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .content-section {
+                padding: 20px;
+            }
+
+            .card {
+                margin-bottom: 20px;
+            }
+
+            .askonestop {
+                bottom: 15px;
+                right: 15px;
+                padding: 8px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#">Onestop</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'courses' %}">Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'format_guide' %}">Format Guide</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'askonestop' %}">ASKONESTOP</a>
+                </li>
+                <li class="nav-item">
+                    <!-- Logout button -->
+                    <form action="{% url 'logout' %}" method="post" class="form-inline">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-outline-light">Logout</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Section -->
+    <div class="content-section">
+        <h1>Letter Formats: A Guide for Communication</h1>
+        <div class="container">
+            <div class="row">
+                <!-- Cover Letters -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Cover Letters</h5>
+                            <p class="card-text">Crafting a compelling cover letter is essential for job applications and internships.</p>
+                            <a href="cover_letter_format.html">View Format</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recommendation Letters -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Recommendation Letters</h5>
+                            <p class="card-text">Follow the proper format when requesting a letter of recommendation from professors or mentors.</p>
+                            <a href="recommendation_letter_format.html">View Format</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formal Letters -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Formal Letters</h5>
+                            <p class="card-text">Learn how to write formal letters to university officials, faculty, or external organizations.</p>
+                            <a href="formal_letter_format.html">View Format</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Informal Letters -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Informal Letters</h5>
+                            <p class="card-text">Understand the appropriate tone and format for informal letters to colleagues or classmates.</p>
+                            <a href="informal_letter_format.html">View Format</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional content if needed -->
+                <!-- Add more cards for other types of letters here if applicable -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        One stop chat displays information which may be inaccurate.
+    </div>
+
+    <!-- AskOneStop Button -->
+    <a href="#" class="askonestop">AskOneStop</a>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
