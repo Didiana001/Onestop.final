@@ -9,3 +9,10 @@ class Conversation(models.Model):
 
     def __str__(self):
         return f"User: {self.user_input} | Bot: {self.bot_response}"
+
+
+class PolicyDocument(models.Model):
+    uri = models.URLField()
+
+    def __str__(self):
+        return f"Policy Document URI: {self.uri}"

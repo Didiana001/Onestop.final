@@ -1,61 +1,261 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Chat</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onestop</title>
     <style>
-        /* Add your custom styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: green;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 16px;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        .navbar-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .navbar .search-bar {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .search-bar input {
+            padding: 8px;
+            border-radius: 25px;
+            border: 1px solid #ccc;
+            margin-right: 10px;
+            width: 200px;
+        }
+
+        .navbar .search-bar button {
+            background-color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+        .navbar .logout-button {
+            background-color: white;
+            color: green;
+            border: 2px solid white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .navbar .logout-button:hover {
+            background-color: red;
+            color: white;
+        }
+
+        /* Main Content */
+        .container {
+            text-align: center;
+            padding: 50px;
+            flex: 1; /* Allow the container to grow */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Push footer down */
+        }
+
+        .icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .title {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .card {
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 20px;
+            width: 200px;
+            margin: 10px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s; /* Add transition for smooth effect */
+        }
+
+        .card:hover {
+            transform: translateY(-5px); /* Lift effect */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Shadow effect */
+        }
+
+        /* Chatbot Input */
+        .chatbox {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+            padding-bottom: 20px;
+        }
+
+        .chatbox input {
+            width: 70%; /* Wider input similar to ChatGPT */
+            padding: 15px;
+            border-radius: 25px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        .chatbox button {
+            background-color: green; /* Green button */
+            color: white; /* White text */
+            border: none;
+            padding: 15px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: red;
+            text-align: center;
+        }
+
+        /* AskOneStop Link */
+        .askonestop {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 14px;
+            background-color: green;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 10px;
+            text-decoration: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar .search-bar input {
+                width: 150px;
+            }
+
+            .chatbox input {
+                width: 80%;
+            }
+
+            .card {
+                width: 150px;
+                padding: 15px;
+            }
+
+            .askonestop {
+                bottom: 15px;
+                right: 15px;
+                padding: 8px 12px;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <div>
-        <form action="{% url 'logout' %}" method="post">
-            {% csrf_token %}
-            <button type="submit" class="btn">Logout</button>
-            
-        </form>
+    <!-- Navbar -->
+    <div class="navbar">
+        <span class="navbar-title">Onestop</span>
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+            <button>Search</button>
+        </div>
+        <div>
+            <a href="{% url 'home' %}">Home</a>
+<a href="{% url 'courses' %}">Courses</a>
+<a href="{% url 'format_guide' %}">Format Guide</a>
+<a href="{% url 'askonestop' %}">ASKONESTOP</a>
+
+            <!-- Logout Button -->
+            <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" class="logout-button">Logout</button>
+            </form>
+        </div>
     </div>
-    
 
-   
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Icon (replace this with the actual icon if available) -->
+        <div class="icon"></div>
+        <div class="title">Your Onestop site for all Unza policies</div>
 
-    <h1>Chat OneStop</h1>
-    <form id="chat-form" method="post">
-        {% csrf_token %}
-        <label for="prompt">Enter your message:</label>
-        <input type="text" id="prompt" name="prompt" required>
-        <button type="submit">Send</button>
-    </form>
-    <div id="response"></div>
+        <!-- Grid of Options -->
+        <div class="grid">
+            <div class="card">
+                <p>How do I apply for accommodation?</p>
+                <p>🛏️</p>
+            </div>
+            <div class="card">
+                <p>Letter formats when addressing the dean</p>
+                <p>📧</p>
+            </div>
+            <div class="card">
+                <p>Staff exchange requirements</p>
+                <p>🔁</p>
+            </div>
+            <div class="card">
+                <p>How do I apply for a withdrawal?</p>
+                <p>📝</p>
+            </div>
+        </div>
 
-    <h2>Conversation</h2>
-    <ul>
-        {% for conversation in conversations %}
-            <li><strong>{{ conversation.user.username }}</strong>: {{ conversation.user_input }} <br>
-                <strong>UNZA Robot:</strong> {{ conversation.bot_response }}</li>
-        {% endfor %}
-    </ul>
+        <!-- Chatbot Input -->
+        <div class="chatbox">
+            <input type="text" placeholder="What do you want to find out?">
+            <button>Send</button>
+        </div>
 
-    <script>
-        document.getElementById('chat-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const prompt = document.getElementById('prompt').value;
-            fetch('', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                    'X-CSRFToken': '{{ csrf_token }}'
-                },
-                body: new URLSearchParams({
-                    'prompt': prompt
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('response').innerText = data.response;
-                location.reload(); // Reload the page to show the new conversation
-            });
-        });
-    </script>
+        <!-- Footer -->
+        <div class="footer">
+            One stop chat displays information which may be inaccurate.
+        </div>
+
+    </div>
+
+    <!-- AskOneStop Link -->
+    <a href="#" class="askonestop">AskOneStop</a>
+
 </body>
 </html>

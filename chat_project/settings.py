@@ -13,16 +13,18 @@ SESSION_COOKIE_AGE = 3600  # 1 hour in seconds
 # Set session expiry to be refreshed only when the user performs an action
 SESSION_SAVE_EVERY_REQUEST = True
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY', default='django-insecure-(@-d44v(0ab)3iq)&rcls9%vhgbei6z-20-47k8lx76ft%tbo+')
 
+# file URI 
+FILE_URI = "https://generativelanguage.googleapis.com/v1beta/files/z9ex41dp75lg"
+
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=True, cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
