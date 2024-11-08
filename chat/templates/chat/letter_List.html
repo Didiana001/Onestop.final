@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter Formats - Onestop</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom style for button layout */
+        .letter-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        .letter-card:hover {
+            box-shadow: 0 4px 15px rgba(0, 128, 0, 0.2);
+        }
+        .letter-name {
+            flex: 1;
+            font-size: 18px;
+            font-weight: bold;
+            color: green;
+        }
+        .letter-actions {
+            display: flex;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#">Onestop</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'format_guide' %}">Format Guide</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'askonestop' %}">ASKONESTOP</a></li>
+                <li class="nav-item">
+                    <form action="{% url 'logout' %}" method="post" class="form-inline">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-outline-light">Logout</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Section -->
+    <div class="content-section">
+        <h1 class="text-center my-5">Available Letter Templates</h1>
+        <div class="container">
+            <div class="row">
+                {% for letter in letter_list %}
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="letter-card">
+                            <!-- Left side: Download and Preview buttons -->
+                            <div class="letter-actions">
+                                <a href="{% url 'download_letter' letter_id=letter.id %}" class="btn btn-success btn-sm">Download</a>
+                                <a href="{% url 'preview_letter' letter_id=letter.id %}" class="btn btn-primary btn-sm">Preview</a>
+                            </div>
+
+                            <!-- Right side: Letter name -->
+                            <div class="letter-name">
+                                {{ letter.name }}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer text-center py-4" style="background-color: green; color: white;">
+        One stop chat displays information which may be inaccurate.
+    </div>
+
+    <!-- AskOneStop Button -->
+    <a href="#" class="askonestop" style="position: fixed; bottom: 20px; right: 20px; background-color: green; color: white; padding: 10px 15px; border-radius: 10px; text-decoration: none;">AskOneStop</a>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

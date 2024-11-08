@@ -111,4 +111,9 @@ def format_guide_view(request):
 def askonestop_view(request):
     return redirect('home')
 
+def letter_list(request, letter_category):
+    # Logic to fetch and display templates based on `letter_category`
+    return render(request, 'letter_list.html', {'category': letter_category})
+
+
 

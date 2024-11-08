@@ -14,4 +14,6 @@ urlpatterns = [
     path('courses/', views.courses_view, name='courses'),
     path('format-guide/', views.format_guide_view, name='format_guide'),
     path('askonestop/', views.askonestop_view, name='askonestop'),
+    path('letter-list/<str:letter_category>/', views.letter_list, name='letter_list'),
+
 ]

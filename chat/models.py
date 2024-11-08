@@ -16,3 +16,20 @@ class PolicyDocument(models.Model):
 
     def __str__(self):
         return f"Policy Document URI: {self.uri}"
+    
+    
+class Letter(models.Model):
+    LETTER_TYPES = [
+        ('cover', 'Cover Letter'),
+        ('recommendation', 'Recommendation Letter'),
+        ('formal', 'Formal Letter'),
+        ('informal', 'Informal Letter'),
+    ]
+    
+    letter_type = models.CharField(max_length=20, choices=LETTER_TYPES)
+    title = models.CharField(max_length=100)
+    description = models.TextField()
+    file = models.FileField(upload_to='letter_templates/')  # Path where the PDF is stored
+    
+    def __str__(self):
+        return self.title
